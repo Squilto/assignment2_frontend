@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
       <nav className="p-4 w-full">
         <div className="container mx-auto flex flex-col justify-left">
-          <span className="text-gray-200 text-2xl font-extrabold font-astronomical">
+          <span className="text-gray text-2xl font-extrabold font-astronomical">
             WEBDEV TECHNICAL SCHOOL
           </span>
           <span className="text-gray-300 text-sm mt-1 font-astronomical">
