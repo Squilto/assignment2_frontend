@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Navbar from './components/Navbar';
 
 const Students = () => {
   const [students, setStudents] = useState([]);
@@ -49,6 +50,7 @@ const Students = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <Navbar />
       <h1 className="text-2xl font-bold mb-4">Students</h1>
       <form onSubmit={handleFormSubmit}>
         <input
