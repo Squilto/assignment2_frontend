@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import StudentTable from './components/StudentTable.js';
 
 const Students = () => {
   const [students, setStudents] = useState([]);
@@ -52,6 +53,7 @@ const Students = () => {
   return (
     <div>
       <Navbar/>
+      <StudentTable/>
       <h1 className="text-2xl font-bold mb-4">Students</h1>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="name" className="sr-only">
