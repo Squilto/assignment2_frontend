@@ -50,6 +50,7 @@ const Students = () => {
 
   return (
     <div>
+      <Navbar/>
       <h1 className="text-2xl font-bold mb-4">Students</h1>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="name" className="sr-only">
