@@ -11,10 +11,10 @@ const StudentTable = () => {
             </tr>
         </thead>
         <tbody>
-            
+
         </tbody>
     </table>
     );
   };
 
-  export default Footer;
+  export default StudentTable;
