@@ -1,106 +1,104 @@
-import { useEffect, useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
+const Students = () => {
+  const [students, setStudents] = useState([]);
   const [editingId, setEditingId] = useState(null);
-  const [editingTitle, setEditingTitle] = useState("");
+  const [editingName, setEditingName] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("http://localhost:5000/students")
       .then((response) => response.json())
-      .then((data) => setPosts(data));
+      .then((data) => setStudents(data));
   }, []);
 
-  const addPost = (title) => {
-    fetch("http://localhost:5000/posts", {
+  const addStudent = (name) => {
+    fetch("http://localhost:5000/students", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title }),
+      body: JSON.stringify({ name }),
     })
       .then((response) => response.json())
-      .then((newPost) => setPosts((prevPosts) => [...prevPosts, newPost]));
-  };
-
-  const deletePost = (id) => {
-    fetch(`http://localhost:5000/posts/${id}`, {
-      method: "DELETE",
-    }).then(() =>
-      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id))
-    );
+      .then((newStudent) =>
+        setStudents((prevStudents) => [...prevStudents, newStudent])
+      );
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const title = e.target.title.value;
-    addPost(title);
-    e.target.title.value = "";
+    const name = e.target.name.value;
+    addStudent(name);
+    e.target.name.value = "";
   };
 
-  const updatePost = (id, title) => {
-    fetch(`http://localhost:5000/posts/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
-    })
-    .then(() => {
-      setPosts(prevPosts => prevPosts.map(post => post.id === id ? { ...post, title } : post));
+  const updateStudent = (id, name) => {
+    fetch(`http://localhost:5000/students/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name }),
+    }).then(() => {
+      setStudents((prevStudents) =>
+        prevStudents.map((student) =>
+          student.id === id ? { ...student, name } : student
+        )
+      );
       setEditingId(null);
-      setEditingTitle('');
+      setEditingName("");
     });
   };
-};
 
-export default Posts;
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Posts</h1>
+      <h1 className="text-2xl font-bold mb-4">Students</h1>
       <form onSubmit={handleFormSubmit}>
         <input
           className="border p-2 mr-2"
           type="text"
-          name="title"
-          placeholder="Post Title"
+          name="name"
+          placeholder="Student Name"
         />
         <button
           className="bg-blue-500 text-white py-1 px-2 rounded"
           type="submit"
         >
-          Add Post
+          Add Student
         </button>
       </form>
       <ul className="mt-4">
-        {posts.map(post => (
-          <li key={post.id} className="border p-2 my-2 flex justify-between items-center">
-            {editingId === post.id ? (
+        {students.map((student) => (
+          <li
+            key={student.id}
+            className="border p-2 my-2 flex justify-between items-center"
+          >
+            {editingId === student.id ? (
               <div className="flex items-center">
-                <input 
-                  className="border p-1 mr-2" 
-                  value={editingTitle}
-                  onChange={(e) => setEditingTitle(e.target.value)}
+                <input
+                  className="border p-1 mr-2"
+                  value={editingName}
+                  onChange={(e) => setEditingName(e.target.value)}
                 />
-                <button 
-                  className="bg-green-500 text-white py-1 px-2 ml-2 rounded-full" 
-                  onClick={() => updatePost(post.id, editingTitle)}
+                <button
+                  className="bg-green-500 text-white py-1 px-2 ml-2 rounded-full"
+                  onClick={() => updateStudent(student.id, editingName)}
                 >
                   Save
                 </button>
               </div>
             ) : (
               <div className="flex items-center">
-                <span className="mr-2">{post.title}</span>
-                <button 
-                  className="bg-yellow-500 text-white py-1 px-2 rounded-full" 
+                <span className="mr-2">{student.name}</span>
+                <button
+                  className="bg-yellow-500 text-white py-1 px-2 rounded-full"
                   onClick={() => {
-                    setEditingId(post.id);
-                    setEditingTitle(post.title);
+                    setEditingId(student.id);
+                    setEditingName(student.name);
                   }}
                 >
                   Edit
                 </button>
-                <button 
-                  className="bg-red-500 text-white py-1 px-2 ml-2 rounded-full" 
-                  onClick={() => deletePost(post.id)}
+                <button
+                  className="bg-red-500 text-white py-1 px-2 ml-2 rounded-full"
+                  onClick={() => deleteStudent(student.id)}
                 >
                   Delete
                 </button>
@@ -110,5 +108,7 @@ export default Posts;
         ))}
       </ul>
     </div>
-    </main>
-);
+  );
+};
+
+export default Students;
