@@ -50,8 +50,12 @@ const Students = () => {
     });
   };
 
+  const gradientStyle = {
+    backgroundImage: 'radial-gradient(ellipse at bottom right, #69787b 1%, #69787b 15%,  #596a6d 2%, #1e1b20 70%)',
+  };
+
   return (
-    <div>
+    <div style={gradientStyle} className="text-white min-h-screen">
       <Navbar/>
       <StudentTable/>
       <h1 className="text-2xl font-bold mb-4">Students</h1>
