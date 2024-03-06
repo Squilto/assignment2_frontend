@@ -49,15 +49,18 @@ const Students = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <Navbar />
+    <div>
       <h1 className="text-2xl font-bold mb-4">Students</h1>
       <form onSubmit={handleFormSubmit}>
+        <label htmlFor="name" className="sr-only">
+          Student Name
+        </label>
         <input
-          className="border p-2 mr-2"
           type="text"
+          id="name"
           name="name"
           placeholder="Student Name"
+          className="border p-2 mr-2"
         />
         <button
           className="bg-blue-500 text-white py-1 px-2 rounded"
@@ -68,14 +71,11 @@ const Students = () => {
       </form>
       <ul className="mt-4">
         {students.map((student) => (
-          <li
-            key={student.id}
-            className="border p-2 my-2 flex justify-between items-center"
-          >
+          <li key={student.id}>
             {editingId === student.id ? (
-              <div className="flex items-center">
+              <div>
                 <input
-                  className="border p-1 mr-2"
+                  type="text"
                   value={editingName}
                   onChange={(e) => setEditingName(e.target.value)}
                 />
@@ -87,13 +87,13 @@ const Students = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center">
-                <span className="mr-2">{student.name}</span>
+              <div>
+                <span>{student.firstName} {student.lastName}</span>
                 <button
-                  className="bg-yellow-500 text-white py-1 px-2 rounded-full"
+                  className="bg-yellow-500 text-white py-1 px-2 ml-2 rounded-full"
                   onClick={() => {
                     setEditingId(student.id);
-                    setEditingName(student.name);
+                    setEditingName(`${student.firstName} ${student.lastName}`);
                   }}
                 >
                   Edit
