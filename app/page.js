@@ -57,8 +57,8 @@ const Students = () => {
   return (
     <div style={gradientStyle} className="text-white min-h-screen">
       <Navbar/>
-      <StudentTable/>
       <h1 className="text-2xl font-bold mb-4">Students</h1>
+      <StudentTable/>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="name" className="sr-only">
           Student Name
