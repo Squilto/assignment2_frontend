@@ -1,0 +1,10 @@
+
+{"Students" :[
+    {"firstName":"Alex", "lastName":"Bink", "Birthday":"August 4th, 1999", "GPA":"2.2"},
+    {"firstName":"James", "lastName":"Gui", "Birthday":"September 22nd, 2001", "GPA":"3.5"},
+    {"firstName":"Ranial", "lastName":"Feck", "Birthday":"January 1st, 1888", "GPA":"5.15"},
+    {"firstName":"Camala", "lastName":"Harris", "Birthday":"October 19th", "GPA":"2.0"},
+    {"firstName":"Sandra", "lastName":"Bullock", "Birthday":"June 4th, 1988", "GPA":"4.0"}
+]
+
+}
