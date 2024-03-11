@@ -4,12 +4,12 @@ import React from 'react';
 const Navbar = () => {
     return (
       <nav className="p-4 w-full">
-        <div className="container mx-auto flex flex-col justify-left">
-          <span className="text-gray text-2xl font-extrabold font-astronomical">
-            WEBDEV TECHNICAL SCHOOL
+        <div className="container mx-auto flex flex-col items-center justify-center">
+          <span className="text-slate-300 text-4xl font-extrabold font-astronomical underline underline-offset-8">
+          New Generation
           </span>
-          <span className="text-gray-300 text-sm mt-1 font-astronomical">
-            for the Technologically Impaired 🌚
+          <span className="text-gray-400 text-2xl mt-1 font-astronomical">
+          High School 
           </span>
         </div>
   

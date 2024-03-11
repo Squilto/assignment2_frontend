@@ -51,7 +51,7 @@ const Students = () => {
   };
 
   const gradientStyle = {
-    backgroundImage: 'radial-gradient(ellipse at bottom right, #69787b 1%, #69787b,  #596a6d 2%, #1e1b20 70%)',
+    backgroundImage: 'radial-gradient(ellipse at bottom right, #69787b, #596a6d 2%, #1e1b20 70%)',
   };
 
   return (
