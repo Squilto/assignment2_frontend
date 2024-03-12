@@ -23,6 +23,7 @@ const StudentForm = ({ handleFormSubmit }) => {
             name="firstName"
             placeholder="First Name"
             className="text-black mx-4 border-2 border-gray-300 px-1 py-2 rounded-md focus:outline-none focus:ring focus:ring-slate-700 focus:border-slate-500"
+            required
           />
   
           {/* Last Name */}
@@ -35,6 +36,7 @@ const StudentForm = ({ handleFormSubmit }) => {
             name="lastName"
             placeholder="Last Name"
             className="text-black mx-4 border-2 border-gray-300 px-1 py-2 rounded-md focus:outline-none focus:ring focus:ring-slate-700 focus:border-slate-500"
+            required
           />
   
           {/* Birthday */}
@@ -47,6 +49,7 @@ const StudentForm = ({ handleFormSubmit }) => {
             name="birthday"
             placeholder="Birthday"
             className="text-black mx-4 border-2 border-gray-300 px-1 py-2 rounded-md focus:outline-none focus:ring focus:ring-slate-700 focus:border-slate-500"
+            required
           />
   
           {/* Grade */}
@@ -61,6 +64,7 @@ const StudentForm = ({ handleFormSubmit }) => {
             className="w-24 text-black mx-4 border-2 border-gray-300 px-1 py-2 rounded-md focus:outline-none focus:ring focus:ring-slate-700 focus:border-slate-500"
             min="8"
             max="12"
+            required
           />
   
           {/* Submit Button */}
