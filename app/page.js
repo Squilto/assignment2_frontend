@@ -10,16 +10,33 @@ const Students = () => {
 
 
   useEffect(() => {
-    fetch("/studentList.json")
-      .then((response) => response.json())
-      .then((data) => setStudents(data.Students));
+    fetch('http://localhost:3001/Students')
+      .then(response => response.json())
+      .then(data => setStudents(data))
+      .catch(error => console.error('Error fetching students:', error));
   }, []);
 
-  const addStudent = (name, birthday, grade) => {
-    const newStudent = { firstName: name.split(' ')[0], lastName: name.split(' ')[1], birthday, grade }; // Split the name into first and last names
-    setStudents((prevStudents) => [...prevStudents, newStudent]);
-  };
+  const addStudent = async (name, birthday, grade) => {
+    const [firstName, lastName] = name.split(' '); // Split the name into first and last names
+    const newStudent = { firstName, lastName, dateOfBirth: birthday, CurrentGPA: grade };
 
+    try {
+      const response = await fetch('http://localhost:3001/Students', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newStudent)
+      });
+      if (response.ok) {
+        setStudents([...students, newStudent]); // Update local student list
+      } else {
+        console.error('Failed to add new student');
+      }
+    } catch (error) {
+      console.error('Error adding new student:', error);
+    }
+  };
 
   const handleFormSubmit = (formData) => {
     const { firstName, lastName, birthday, grade } = formData;
