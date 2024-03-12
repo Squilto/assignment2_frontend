@@ -2,7 +2,16 @@ import React from "react";
 
 const StudentForm = ({ handleFormSubmit }) => {
     return (
-        <form onSubmit={handleFormSubmit} className="my-4 text-center">
+      <form onSubmit={(event) => {
+        event.preventDefault(); // Prevents the default form submission action
+        const formData = {
+          firstName: event.target.firstName.value,
+          lastName: event.target.lastName.value,
+          birthday: event.target.birthday.value,
+          grade: event.target.grade.value,
+        };
+        handleFormSubmit(formData);
+      }} className="my-4 text-center">
   
           {/* First Name */}
           <label htmlFor="firstName" className="sr-only">
