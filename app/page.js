@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import StudentForm from './components/StudentForm';
 import StudentTable from './components/StudentTable.js';
 
 const Students = () => {
@@ -10,13 +11,13 @@ const Students = () => {
   const [editingName, setEditingName] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/students")
+    fetch("http://localhost:3000/studentList")
       .then((response) => response.json())
       .then((data) => setStudents(data));
   }, []);
 
   const addStudent = (name) => {
-    fetch("http://localhost:5000/students", {
+    fetch("http://localhost:3000/studentList", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name }),
@@ -35,7 +36,7 @@ const Students = () => {
   };
 
   const updateStudent = (id, name) => {
-    fetch(`http://localhost:5000/students/${id}`, {
+    fetch(`http://localhost:3000/studentList/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name }),
@@ -56,27 +57,9 @@ const Students = () => {
 
   return (
     <div style={gradientStyle} className="text-white min-h-screen">
-      <Navbar/>
-      <h1 className="text-2xl font-bold mb-4">Students</h1>
-      <StudentTable/>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="name" className="sr-only">
-          Student Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Student Name"
-          className="border p-2 mr-2"
-        />
-        <button
-          className="bg-blue-500 text-white py-1 px-2 rounded"
-          type="submit"
-        >
-          Add Student
-        </button>
-      </form>
+      <Navbar />
+      <StudentForm />
+      <StudentTable />
       <ul className="mt-4">
         {students.map((student) => (
           <li key={student.id}>
