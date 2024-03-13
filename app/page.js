@@ -18,7 +18,7 @@ const Students = () => {
 
   const addStudent = async (name, birthday, grade) => {
     const [firstName, lastName] = name.split(' '); // Split the name into first and last names
-    const newStudent = { firstName, lastName, dateOfBirth: birthday, CurrentGPA: grade };
+    const newStudent = { firstName, lastName, birthday, grade };
 
     try {
       const response = await fetch('http://localhost:3001/Students', {
