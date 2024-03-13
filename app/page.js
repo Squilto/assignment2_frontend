@@ -1,4 +1,4 @@
-//Names: Ricky To,Declan Mohan, Hagan Chung, Edward Ouston
+//Names: Ricky To, Declan Diamond, Hagan Chung, Edward Ouston
 //Date: March 12th 2024
 //Description: / This page is used to manage and display a list of students.
 // It fetches student data from a backend server, allows adding new students through a form,
