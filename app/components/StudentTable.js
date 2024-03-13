@@ -1,5 +1,6 @@
 import React from "react";
 
+//The student table with tailwind for title structuring and individual
 const StudentTable = ({ students }) => {
   return (
     <div className="py-8 flex flex-col items-center justify-center max-h-screen">

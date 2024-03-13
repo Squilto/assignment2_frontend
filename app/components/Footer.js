@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Tailwind structuring and layout of the page footer
 const Footer = () => {
     return (
       <footer className="mt-4 text-center text-gray-400">

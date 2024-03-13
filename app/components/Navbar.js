@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//Tailwind structuring and layout of the top navigation bar
 const Navbar = () => {
     return (
       <nav className="p-4 w-full">
