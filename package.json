@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "json-server --watch studentList.json --port 3001"
   },
   "dependencies": {
     "json-server": "^1.0.0-alpha.23",
